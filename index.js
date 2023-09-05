@@ -14,14 +14,15 @@ const bookRoutes = require('./routes/bookroutes.js')
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors());
+/*
 app.use(
     cors({
-        origin:'https://book-api-wagp.onrender.com',
+        origin:'http://localhost:3001',
         methods:['GET','POST','PUT','DELETE'],
         allowedHeaders:['Content-Type'],
     })
 )
-
+*/
 
 app.use(express.json())
 app.use('/api',bookRoutes);
@@ -30,7 +31,7 @@ mongoose
 .then(()=>{
     console.log('Database connected Successfully')
     app.listen(port,()=>{
-        console.log(`server running at https://book-api-wagp.onrender.com: ${port}`)
+        console.log(`server running at http://localhost: ${port}`)
     })
 })
 .catch((error)=>{
