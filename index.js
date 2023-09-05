@@ -1,15 +1,6 @@
-/*
-const dotenv = require('dotenv').config()
-const request = require('request');
-const url = `https://api.openweathermap.org/data/2.5/weather?q=lilongwe,malawi&units=metric&appid=${process.env.API_KEY}`
-request(url,(err,res,body)=>{
-    const data = JSON.parse(body)
-    console.log(data.main);
-y
-})
-*/
+
 require('dotenv').config();
-const URL=process.env.URI || 3001
+const URL=process.env.URI || PORT
 const express = require('express');
 const app =  express();
 const port = 3001;
@@ -23,15 +14,14 @@ const bookRoutes = require('./routes/bookroutes.js')
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors());
-/*
 app.use(
     cors({
-        origin:'http://localhost:3001',
+        origin:'https://book_api.onrender.com',
         methods:['GET','POST','PUT','DELETE'],
         allowedHeaders:['Content-Type'],
     })
 )
-*/
+
 
 app.use(express.json())
 app.use('/api',bookRoutes);
@@ -40,7 +30,7 @@ mongoose
 .then(()=>{
     console.log('Database connected Successfully')
     app.listen(port,()=>{
-        console.log(`server running at http://localhost ${port}`)
+        console.log(`server running at https://book_api.onrender.com: ${port}`)
     })
 })
 .catch((error)=>{
