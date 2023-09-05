@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 app.use(
     cors({
-        origin:'https://book_api.onrender.com',
+        origin:'https://book-api-wagp.onrender.com',
         methods:['GET','POST','PUT','DELETE'],
         allowedHeaders:['Content-Type'],
     })
@@ -30,7 +30,7 @@ mongoose
 .then(()=>{
     console.log('Database connected Successfully')
     app.listen(port,()=>{
-        console.log(`server running at https://book_api.onrender.com: ${port}`)
+        console.log(`server running at https://book-api-wagp.onrender.com: ${port}`)
     })
 })
 .catch((error)=>{
